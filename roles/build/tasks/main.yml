@@ -1,0 +1,8 @@
+---
+# tasks file for build
+
+- name: Clone Boxfuse repo
+  git: repo='https://github.com/boxfuse/boxfuse-sample-java-war-hello.git' dest={{ boxfuse_path }} version=master clone=yes
+
+- name: Maven package & push app into app repo
+  command: cd /tmp/boxfuse/boxfuse-sample-java-war-hello && mvn package && cd /tmp/boxfuse/boxfuse-sample-java-war-hello/target/ && git init && git add . && git remote add origin https://github.com/jk84reg/test-dz/tree/master/DZ-9.git && git push -u origin master

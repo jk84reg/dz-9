@@ -1,0 +1,11 @@
+---
+# tasks file for environment
+
+- name: Update apt
+  apt: update_cache=yes
+
+- name: Ensure default-jdk & git packedge is present
+  apt: name={{item}} state=present
+  with_items:
+    - default-jdk
+    - git

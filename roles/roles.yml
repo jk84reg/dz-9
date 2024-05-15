@@ -1,0 +1,17 @@
+---
+- name: Build VM config
+  hosts: build
+  become: yes
+
+  roles:
+    - environment
+    - maven
+    - build
+
+- name: Prod VM config
+  hosts: prod
+  become: yes
+
+  roles:
+    - environment
+    - webserver

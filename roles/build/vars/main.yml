@@ -1,0 +1,4 @@
+---
+# vars file for build
+
+boxfuse_path: /tmp/boxfuse

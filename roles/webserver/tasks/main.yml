@@ -1,0 +1,15 @@
+---
+# tasks file for webserver
+
+- name: Update apt
+  apt: update_cache=yes
+
+- name: Ensure tomcat9 packedge is present
+  apt: name={{item}} state=present
+  with_items:
+    - tomcat9
+ 
+- name: Get sparkjava-hello-world-1.0.war
+  git: repo=https://github.com/jk84reg/test-dz/tree/master/DZ-8.git dest={{ tomcat_webapps_path }} version=master clone=yes
+  notify:
+  - Restart tomcat9

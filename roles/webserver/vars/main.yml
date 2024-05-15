@@ -1,0 +1,4 @@
+---
+# vars file for webserver
+
+tomcat_webapps_path: /var/lib/tomcat9/webapps/
